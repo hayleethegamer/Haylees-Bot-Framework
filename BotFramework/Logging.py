@@ -1,4 +1,4 @@
- '''Copyright (C) 2020  Hayleethegamer
+'''Copyright (C) 2020  Hayleethegamer
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -225,7 +225,10 @@ class Logging():
 		try:
 			channelKey = Support.loadJson(channelKeyLocation)
 		except FileNotFoundError:
-			os.makedirs(serverPath)
+			try:
+				os.makedirs(serverPath)
+			except FileExistsError:
+				pass
 			Support.writeJson(channelKeyLocation, {})
 			self.sysLog("Warning", "Channel Key not found, new one Created.")
 			channelKey = Support.loadJson(channelKeyLocation)
