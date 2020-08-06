@@ -56,6 +56,7 @@ defaultSettings = {
 class Bot():
 	def __init__(self, commandPrefix, **options):
 		self.commandPrefix = commandPrefix #Sets the Command Prefix 
+		self.testing = options.get("testing", False) #Enables or disables the testing Mode
 		#Sets owner ID(s), if none Given, set to blank Set
 		self.ownerIDs = options.get("ownerIDs", set())
 		#sets where the log files are, defaults to working Directory "Logs" folder
